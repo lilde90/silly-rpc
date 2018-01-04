@@ -3,7 +3,9 @@
 //
 #ifndef _SILLYRPC_BASE_SCOPED_MUTEX_H_
 #define _SILLYRPC_BASE_SCOPED_MUTEX_H_
+
 #include <pthread.h>
+
 namespace sillyrpc {
 namespace base {
 
@@ -43,4 +45,5 @@ private:
 
 } // namespace base
 } // namespace sillyrpc
+
 #endif // _SILLYRPC_BASE_SCOPED_MUTEX_H_
