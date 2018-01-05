@@ -4,7 +4,9 @@
 #ifndef _SILLYRPC_BASE_CONDITION_H_
 #define _SILLYRPC_BASE_CONDITION_H_
 
+#include <cstdlib>
 #include <pthread.h>
+#include <sys/time.h>
 #include <silly-rpc/base/scoped_mutex.h>
 
 namespace sillyrpc {
@@ -20,8 +22,15 @@ class Condition {
     pthread_cond_destroy(&_cond);
   }
 
-  void timedwait(int timeout_in_ms) {
-    //return pthread_cond_timedwait(&_cond, &_mutex);
+  bool timedwait(int timeout_in_ms) {
+    struct timeval now_timeval;
+    gettimeofday(&now_timeval, NULL);
+    struct timespec timeout_timespec; 
+    unsigned long usec = now_timeval.tv_usec + timeout_in_ms * 1000;
+    timeout_timespec.tv_sec = now_timeval.tv_sec + usec / 1000 / 1000;
+    timeout_timespec.tv_nsec = (usec % (1000 * 1000)) * 1000;
+    int error = pthread_cond_timedwait(&cond, &(_mutex.getMutex()), &timeout_timespec);
+    return error == 0;
   }
 
   void wait() {
