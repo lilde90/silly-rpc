@@ -33,7 +33,7 @@ void log_handler(const char* filename, int line,
   localtime_r(&seconds, &t);
   fprintf(stderr, "[sillyrpc][%s][%04d-%02d-%02d::%02d::%02d::%02d.%06d][%s:%d %lld] %s\n",
       level_names[level],
-      t.tm_year + 1900,
+      t.tm_year + TM_YEAR_OFFSET,
       t.tm_mon,
       t.tm_mday,
       t.tm_hour,

@@ -13,6 +13,7 @@ namespace sillyrpc {
 namespace base {
 
 static const int MAX_LOGGING_BUF_SIZE = 1024;
+static const int TM_YEAR_OFFSET = 1900;
 
 } // namespace base
 } // namespace sillyrpc
