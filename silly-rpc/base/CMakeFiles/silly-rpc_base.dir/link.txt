@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsilly-rpc_base.a  CMakeFiles/silly-rpc_base.dir/logging.cc.o
+/usr/bin/ranlib libsilly-rpc_base.a

@@ -26,21 +26,12 @@ public:
     pthread_mutex_unlock(&_mutex);
   }
 
+  pthread_mutex_t& getMutex() {
+    return _mutex;
+  }
+
 private:
   pthread_mutex_t _mutex;
-};
-
-class ScopedMutexGuard {
-public:
-  ScopedMutexGuard(ScopedMutex& mutex) :
-    _mutex(mutex) {
-    _mutex.lock();
-  }
-  ~ScopedMutexGuard() {
-    _mutex.unlock();
-  }
-private:
-  ScopedMutex _mutex;
 };
 
 } // namespace base
