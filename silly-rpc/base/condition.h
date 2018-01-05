@@ -29,7 +29,7 @@ class Condition {
     unsigned long usec = now_timeval.tv_usec + timeout_in_ms * 1000;
     timeout_timespec.tv_sec = now_timeval.tv_sec + usec / 1000 / 1000;
     timeout_timespec.tv_nsec = (usec % (1000 * 1000)) * 1000;
-    int error = pthread_cond_timedwait(&cond, &(_mutex.getMutex()), &timeout_timespec);
+    int error = pthread_cond_timedwait(&_cond, &(_mutex.getMutex()), &timeout_timespec);
     return error == 0;
   }
 
