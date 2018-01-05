@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsilly-rpc_core.a  CMakeFiles/silly-rpc_core.dir/test.cc.o
-/usr/bin/ranlib libsilly-rpc_core.a
