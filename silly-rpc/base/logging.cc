@@ -3,6 +3,7 @@
 //
 #include <cstdio>
 #include <cstdlib> // abort();
+#include <pthread.h>
 #include <time.h>
 #include <sys/time.h>
 #include <silly-rpc/base/logging.h>
@@ -30,8 +31,20 @@ void log_handler(const char* filename, int line,
   const time_t seconds = now_timeval.tv_sec;
   struct tm t;
   localtime_r(&seconds, &t);
-  fprintf(stderr, "[sillyrpc][%s]",
-      level_names[level]);
+  fprintf(stderr, "[sillyrpc][%s][%04d-%02d-%02d::%02d::%02d::%02d.%06d][%s:%d %lld] %s\n",
+      level_names[level],
+      t.tm_year + 1900,
+      t.tm_mon,
+      t.tm_mday,
+      t.tm_hour,
+      t.tm_min,
+      t.tm_sec,
+      static_cast<int>(now_timeval.tv_usec),
+      filename,
+      line,
+      static_cast<unsigned long long int>(pthread_self()),
+      buf);
+      
   fflush(stderr);
 
   if (level == LOG_LEVEL_FATAL) {

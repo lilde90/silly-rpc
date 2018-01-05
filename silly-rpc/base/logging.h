@@ -3,7 +3,9 @@
 //
 #ifndef _SILLYRPC_BASE_LOGGING_H_
 #define _SILLYRPC_BASE_LOGGING_H_
+
 #include <stdarg.h>
+
 namespace sillyrpc {
 namespace base {
 
@@ -41,4 +43,5 @@ void log_handler(const char* filename, int line, LogLevel level, const char* fmt
 
 } // namespace base
 } // namespace sillyrpc
+
 #endif // _SILLYRPC_YARPC_BASE_LOGGING_H_
