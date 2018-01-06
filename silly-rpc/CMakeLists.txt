@@ -31,4 +31,6 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 include_directories(./)
 add_subdirectory(base)
 add_subdirectory(core)
+add_subdirectory(unittest/base)
+add_subdirectory(unittest/core)
 
