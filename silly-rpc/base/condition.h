@@ -45,9 +45,6 @@ class Condition {
 private:
   ScopedMutex _mutex;
   pthread_cond_t _cond;
-
-private:
-  DISALLOW_COPY_AND_ASSIGN(Condition);
 };
 
 } // namespace base

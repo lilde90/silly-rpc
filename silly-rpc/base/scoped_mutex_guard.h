@@ -21,8 +21,6 @@ public:
 private:
   ScopedMutex _mutex;
 
-private:
-  DISALLOW_COPY_AND_ASSIGN(ScopedMutexGuard);
 };
 
 } // namespace base
