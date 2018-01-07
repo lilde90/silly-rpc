@@ -10,6 +10,10 @@ namespace base {
 static const int MAX_LOGGING_BUF_SIZE = 1024;
 static const int TM_YEAR_OFFSET = 1900;
 
+#define DIALLOW_COPY_AND_ASSIGN(TypeName) \
+  TypeName(const TypeName&);              \
+  TypeName& operator=(const TypeName&)
+
 } // namespace base
 } // namespace sillyrpc
 

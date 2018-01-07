@@ -5,6 +5,7 @@
 #define _SILLYRPC_BASE_SCOPED_MUTEX_H_
 
 #include <pthread.h>
+#include <silly-rpc/base/silly_rpc_defs.h>
 
 namespace sillyrpc {
 namespace base {
@@ -32,6 +33,9 @@ public:
 
 private:
   pthread_mutex_t _mutex;
+
+private:
+  DISALLOW_COPY_AND_ASSIGN(ScopedMutex);
 };
 
 } // namespace base
