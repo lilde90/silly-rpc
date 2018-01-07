@@ -4,7 +4,21 @@
 #include <silly-rpc/base/scoped_mutex.h>
 #include <gtest/gtest.h>
 
-TEST(FooTest, Case1) {
-  ASSERT_EQ(1, 1);
-  ASSERT_NE(1, 2);
+namespace sillyrpc {
+namespace unittest {
+namespace base {
+
+TEST(ScopedMutexTest, LockCase) {
+  sillyrpc::base::ScopedMutex mutex;
+  int a = 1;
+  mutex.lock();
+  a++;
+  mutex.unlock();
+  ASSERT_EQ(a, 2);
 }
+
+} // namespace base
+} // namespace unittest
+} // namespace sillyrpc
+
+
