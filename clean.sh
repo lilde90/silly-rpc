@@ -35,6 +35,7 @@ rm -rf ./unittest/*/CMakeFiles
 rm -f ./unittest/*/Makefile
 rm -f ./unittest/*/cmake_install.cmake
 rm -rf ./unittest/*/*.a
+rm -rf ./unittest/silly-rpc_unittest_*
 
 cd ..
 rm -rf googletest

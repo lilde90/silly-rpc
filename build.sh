@@ -2,8 +2,14 @@
 # Author: Pan Li (panli.me@gmail.com)
 #!/bin/bash
 #
-git clone https://github.com/google/googletest.git
+cd ./googletest/
+cmake .
+make -j12
+cd ./googletest/
+cmake .
+make -j12
+cd ../../
 cd silly-rpc
 cmake .
-make -s
+make -j12
 cd ..
