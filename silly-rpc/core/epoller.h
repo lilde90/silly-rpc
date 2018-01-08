@@ -5,6 +5,7 @@
 #define _SILLYRPC_CORE_EPOLLER_H_
 
 #include <vector>
+#include <unordered_map>
 #include <sys/epoll.h>
 #include <silly-rpc/base/logging.h>
 #include <silly-rpc/base/silly_rpc_defs.h>
@@ -30,10 +31,13 @@ public:
 
 public:
   int poll(std::vector<Channel*>& channels, int timeout_in_ms);
+  int updateChannel(Channel* channel);
+  int updateImpl(Channel* channel, int op);
 private:
 
   int _epoll_fd;
   std::vector<struct epoll_event> _events;
+  std::unordered_map<int, Channel*> _fd_channel_map;
 
 private:
   DISALLOW_COPY_AND_ASSIGN(Epoller);
