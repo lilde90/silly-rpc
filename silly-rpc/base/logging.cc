@@ -12,7 +12,7 @@
 namespace sillyrpc {
 namespace base {
 
-void log_handler(const char* filename, int line, 
+void log_handler_impl(const char* filename, int line, 
     LogLevel level, const char* fmt, va_list arg) {
   static const char* level_names[] = {
     "FATAL",
@@ -51,6 +51,13 @@ void log_handler(const char* filename, int line,
     abort();
   }
 
+}
+
+void log_handler(const char* filename, int line, LogLevel level, const char* fmt, ...) {
+  va_list ap;
+  va_start(ap, fmt);
+  log_handler_impl(filename, line, level, fmt, ap);
+  va_end(ap);
 }
 
 } // namespace base

@@ -9,6 +9,8 @@ namespace base {
 
 static const int MAX_LOGGING_BUF_SIZE = 1024;
 static const int TM_YEAR_OFFSET = 1900;
+static const int EPOLL_CREATE_INIT_FD_SIZE = 1024;
+static const int EVENTS_VECTOR_INIT_SIZE = 32;
 
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
   TypeName(const TypeName&);              \
