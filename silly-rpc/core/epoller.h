@@ -33,6 +33,7 @@ public:
   int poll(std::vector<Channel*>& channels, int timeout_in_ms);
   int updateChannel(Channel* channel);
   int updateImpl(Channel* channel, int op);
+  int removeChannel(Channel* channel);
 private:
 
   int _epoll_fd;

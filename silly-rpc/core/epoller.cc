@@ -71,6 +71,7 @@ int Epoller::updateChannel(Channel* channel) {
   }
   return 0;
 }
+
 int Epoller::updateImpl(Channel* channel, int op) {
   struct epoll_event event;
   bzero(&event, sizeof(event));
@@ -82,7 +83,25 @@ int Epoller::updateImpl(Channel* channel, int op) {
     return ret;
   }
   return 0;
+}
 
+int Epoller::removeChannel(Channel* channel) {
+  if (channel == NULL) {
+    return -1;
+  }
+  int fd = channel->fd();
+  ChannelState state = channel->state();
+  size_t n = _fd_channel_map.erase(fd);
+  if (n != 1) {
+    LOG_FATAL("fd channel map internal error");
+    return -1;
+  }
+
+  if (state == MODChannel) {
+    updateImpl(channel, EPOLL_CTL_DEL);
+  }
+  channel->setState(ADDChannel);
+  return 0;
 }
 
 } // namespace core
