@@ -2,7 +2,6 @@
 // Author: Pan Li (panli.me@gmail.com)
 //
 #include <string.h>
-#include <unistd.h>
 #include <silly-rpc/core/epoller.h>
 
 namespace sillyrpc {
@@ -58,9 +57,9 @@ int Epoller::updateChannel(Channel* channel) {
       }
     }
   } else {
-    if (state == ADDChannel) {
-      // set fd and channel map;
-      _fd_channel_map[fd] = channel;
+    if (state == ADDChannel) { 
+      // set fd and channel map; 
+      _fd_channel_map[fd] = channel; 
     }
     int ret = updateImpl(channel, EPOLL_CTL_ADD);
     if (ret < 0) {

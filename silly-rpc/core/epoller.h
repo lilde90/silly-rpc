@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <unordered_map>
+#include <unistd.h>
 #include <sys/epoll.h>
 #include <silly-rpc/base/logging.h>
 #include <silly-rpc/base/silly_rpc_defs.h>
