@@ -12,6 +12,8 @@ static const int TM_YEAR_OFFSET = 1900;
 static const int EPOLL_CREATE_INIT_FD_SIZE = 1024;
 static const int EVENTS_VECTOR_INIT_SIZE = 32;
 static const int POLL_DEFAULT_TIMEOUT_MS = 100;
+static const int MAX_IP_ADDRESS_BUF_SIZE = 32;
+static const int MAX_RESOLVE_BUF_SIZE = 256;
 
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
   TypeName(const TypeName&);              \
