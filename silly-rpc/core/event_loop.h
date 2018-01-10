@@ -11,9 +11,15 @@
 namespace sillyrpc {
 namespace core {
 class EventLoop {
+public:
+  void loop();
+  void quit();
 private:
-  Channel* _channel;
   Epoller* _epoller;
+  bool _looping;
+  bool _quit;
+  std::vector<Channel*> _active_channels;
+  
 private:
   DISALLOW_COPY_AND_ASSIGN(EventLoop);
 };
