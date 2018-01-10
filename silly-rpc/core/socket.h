@@ -7,11 +7,11 @@
 #include <arpa/inet.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <linux/unistd.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
-#include <linux/unistd.h>
 
 namespace sillyrpc {
 namespace core {
@@ -69,4 +69,4 @@ void fromIpPort(const char* ip, uint16_t port,
 } // namespace core
 } // namespace sillyrpc
 
-#endif // _SILLYRPC_CORE_SOCKET_H_
+#endif // _sillyrpc_core_socket_h_
