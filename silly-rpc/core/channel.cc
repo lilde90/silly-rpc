@@ -20,5 +20,13 @@ void Channel::handleEvent() {
   }
 
 }
+
+Channel::Channel(int fd) :
+  _events(0),
+  _revents(0),
+  _fd(fd),
+  _state(ADDChannel) {
+}
+
 } // namespace core
 } // naemspace sillyrpc

@@ -33,7 +33,7 @@ public:
   }
 
   const struct sockaddr* getSockAddr() const {
-    return sockaddr_cast(&_addr);
+    return sillyrpc::core::sockaddr_cast(&_addr);
   }
 
   void setSockAddr(const struct sockaddr_in& addr) {

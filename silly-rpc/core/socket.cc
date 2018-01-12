@@ -2,11 +2,11 @@
 // Author: Pan Li (panli.me@gmail.com)
 //
 #include <silly-rpc/core/socket.h>
+#include <silly-rpc/core/address.h>
 #include <silly-rpc/base/logging.h>
 #include <strings.h>
 #include <string.h>
 #include <stdio.h>
-#include <silly-rpc/core/address.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 

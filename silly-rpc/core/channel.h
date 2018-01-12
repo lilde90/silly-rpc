@@ -29,6 +29,7 @@ const int channelWriteEvent = EPOLLOUT;
 
 class Channel {
 public:
+  Channel(int fd);
   typedef std::function<void()> EventCallback;
 
   inline void setEvents(int events) {
@@ -67,15 +68,18 @@ public:
     //update();
   }
 
-  inline void isReading() {
+  void disableAll() {
+    _events = 0;
+  }
+
+  inline bool isReading() {
     return _events & (EPOLLIN | EPOLLPRI);
   }
 
-  inline void isWriting() {
+  inline bool isWriting() {
     return _events & EPOLLOUT;
   }
 
-  void 
   inline int events() {
     return _events;
   }
