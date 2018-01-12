@@ -13,7 +13,7 @@ namespace core {
 Acceptor::Acceptor(EventLoop* loop, const Address& listen_addr) 
   : _loop(loop),
   _accept_socket(::socket(listen_addr.family(), SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP)),
-  _accept_channel(_accept_socket.fd()),
+  _accept_channel(_loop, _accept_socket.fd()),
   _listening(false){
 
     _accept_socket.setReuseAddr(true);

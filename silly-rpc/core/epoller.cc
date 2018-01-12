@@ -3,6 +3,7 @@
 //
 #include <string.h>
 #include <silly-rpc/core/epoller.h>
+#include <silly-rpc/core/channel.h>
 
 namespace sillyrpc {
 namespace core {

@@ -10,11 +10,10 @@
 #include <sys/epoll.h>
 #include <silly-rpc/base/logging.h>
 #include <silly-rpc/base/silly_rpc_defs.h>
-#include <silly-rpc/core/channel.h>
 
 namespace sillyrpc {
 namespace core {
-
+class Channel;
 class Epoller {
 public:
   Epoller() : 

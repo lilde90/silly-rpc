@@ -3,6 +3,7 @@
 //
 #include <silly-rpc/base/silly_rpc_defs.h>
 #include <silly-rpc/core/event_loop.h>
+#include <silly-rpc/core/channel.h>
 #include <unistd.h>
 
 namespace sillyrpc {
@@ -21,6 +22,13 @@ void EventLoop::loop() {
 
 void EventLoop::quit() {
   _quit = true;
+}
+
+void EventLoop::updateChannel(Channel* channel) {
+  if (channel == NULL) {
+    return;
+  }
+  _epoller->updateChannel(channel);
 }
 
 } // namespace core

@@ -27,9 +27,10 @@ const int channelNoneEvent = 0;
 const int channelReadEvent = EPOLLIN | EPOLLPRI;
 const int channelWriteEvent = EPOLLOUT;
 
+class EventLoop;
 class Channel {
 public:
-  Channel(int fd);
+  Channel(EventLoop* loop, int fd);
   typedef std::function<void()> EventCallback;
 
   inline void setEvents(int events) {
@@ -50,26 +51,27 @@ public:
 
   void enableReading() {
     _events |= (EPOLLIN | EPOLLPRI);
-    //update();
+    update();
   }
 
   void disableReading() {
     _events &= ~(EPOLLIN | EPOLLPRI);
-    //update();
+    update();
   }
 
   void enableWriting() {
     _events |= EPOLLOUT;
-    //update();
+    update();
   }
 
   void disableWriting() {
     _events &= ~EPOLLOUT;
-    //update();
+    update();
   }
 
   void disableAll() {
     _events = 0;
+    update();
   }
 
   inline bool isReading() {
@@ -110,8 +112,12 @@ public:
 
 public:
   void handleEvent();
+public: 
+
+  void update();
 
 private:
+  EventLoop* _loop;
   int _events;
   int _revents;
   int _fd;
