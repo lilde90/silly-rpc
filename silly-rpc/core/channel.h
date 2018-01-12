@@ -47,6 +47,35 @@ public:
     _state = state;
   }
 
+  void enableReading() {
+    _events |= (EPOLLIN | EPOLLPRI);
+    //update();
+  }
+
+  void disableReading() {
+    _events &= ~(EPOLLIN | EPOLLPRI);
+    //update();
+  }
+
+  void enableWriting() {
+    _events |= EPOLLOUT;
+    //update();
+  }
+
+  void disableWriting() {
+    _events &= ~EPOLLOUT;
+    //update();
+  }
+
+  inline void isReading() {
+    return _events & (EPOLLIN | EPOLLPRI);
+  }
+
+  inline void isWriting() {
+    return _events & EPOLLOUT;
+  }
+
+  void 
   inline int events() {
     return _events;
   }
