@@ -15,7 +15,8 @@ LINUX SUPPORT ONLY!
 
 
 ## Compile and install
-sh get\_deps.sh to get deps including gtest 
+get deps incluing gtest
+    sh get\_deps.sh
 </br>
 sh build.sh to build deps source code, silly-rpc source code, silly-rpc unittest 
 </br>
