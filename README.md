@@ -9,7 +9,7 @@ silly-rpc required C++11 support and eventfd support.
 </br>
 GCC > 4.8.2
 </br>
-Linux kernel > 2.7
+Linux kernel > 2.6.22
 </br>
 LINUX SUPPORT ONLY!
 </br>
