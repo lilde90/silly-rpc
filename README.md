@@ -13,8 +13,8 @@ LINUX SUPPORT ONLY!
 
 
 ## Compile and install
-sh get\_deps.sh to get deps including gtest
-sh build.sh to build deps source code, silly-rpc source code, silly-rpc unittest
-sh clean.sh to clean all the build results;
-sh clean\_deps.sh to remove building deps
+sh get\_deps.sh to get deps including gtest 
+sh build.sh to build deps source code, silly-rpc source code, silly-rpc unittest 
+sh clean.sh to clean all the build results 
+sh clean\_deps.sh to remove building deps 
 
