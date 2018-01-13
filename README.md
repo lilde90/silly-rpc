@@ -17,7 +17,7 @@ LINUX SUPPORT ONLY!
 ## Compile and install
 get deps incluing gtest
 </br>
-`sh get\_deps.sh`
+`sh get_deps.sh`
 </br>
 build deps source code, silly-rpc source code, silly-rpc unittest 
 </br>
@@ -29,5 +29,5 @@ clean all the build results
 </br>
 remove building deps 
 </br>
-`sh clean\_deps.sh`
+`sh clean_deps.sh`
 
