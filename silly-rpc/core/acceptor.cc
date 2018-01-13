@@ -2,6 +2,7 @@
 // Author: Pan Li (panli.me@gmail.com)
 //
 //
+#include <functional>
 #include <silly-rpc/base/logging.h>
 #include <silly-rpc/core/acceptor.h>
 #include <silly-rpc/core/socket.h>
