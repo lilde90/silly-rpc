@@ -4,6 +4,8 @@
 #ifndef _SILLYRPC_BASE_SILLY_RPC_DEFS_H_
 #define _SILLYRPC_BASE_SILLY_RPC_DEFS_H_
 
+#include <functional>
+
 namespace sillyrpc {
 namespace base {
 
@@ -19,7 +21,14 @@ static const int MAX_RESOLVE_BUF_SIZE = 256;
   TypeName(const TypeName&);              \
   TypeName& operator=(const TypeName&)
 
+
 } // namespace base
+namespace core {
+  class TcpConnection;
+  typedef std::function<void (const TcpConnection*)> ConnectionCallback;
+  typedef std::function<void (const TcpConnection*)> CloseCallback;
+  typedef std::function<void (const TcpConnection*)> MessageCallback;
+} // namespace core
 } // namespace sillyrpc
 
 #endif // _SILLYRPC_BASE_SILLY_RPC_DEFS_H_

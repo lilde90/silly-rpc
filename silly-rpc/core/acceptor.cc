@@ -20,7 +20,7 @@ Acceptor::Acceptor(EventLoop* loop, const Address& listen_addr)
     _accept_socket.setReuseAddr(true);
     _accept_socket.setReusePort(true);
     _accept_socket.bind(listen_addr);
-    //_accept_channel.setReadCallback(std::bind(&Acceptor::handleRead, this));
+    _accept_channel.setReadCallback(std::bind(&Acceptor::handleRead, this));
 }
 
 Acceptor::~Acceptor() {

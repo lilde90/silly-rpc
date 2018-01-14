@@ -39,6 +39,7 @@ public:
   void setReuseAddr(bool open);
   void setReusePort(bool open);
   void setKeepAlive(bool open);
+
 private:
   const int _fd;
 };

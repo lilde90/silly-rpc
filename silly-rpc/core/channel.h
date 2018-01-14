@@ -31,8 +31,8 @@ class EventLoop;
 class Channel {
 public:
   Channel(EventLoop* loop, int fd);
-  typedef std::function<void()> EventCallback;
 
+  typedef std::function<void(void)> EventCallback;
   inline void setEvents(int events) {
     _events = events;
   }
@@ -98,16 +98,20 @@ public:
     return _state;
   }
 
-  void setReadCallback(EventCallback& read_callback) {
+  void setReadCallback(const EventCallback& read_callback) {
     _read_callback = read_callback;
   }
 
-  void setWriteCallback(EventCallback& write_callback) {
+  void setWriteCallback(const EventCallback& write_callback) {
     _write_callback = write_callback;
   }
 
-  void setErrorCallback(EventCallback& error_callback) {
+  void setErrorCallback(const EventCallback& error_callback) {
     _error_callback = error_callback;
+  }
+
+  void setCloseCallback(const EventCallback& close_callback) {
+    _close_callback = close_callback;
   }
 
 public:
@@ -127,6 +131,7 @@ private:
   EventCallback _read_callback;
   EventCallback _write_callback;
   EventCallback _error_callback;
+  EventCallback _close_callback;
 
 private:
   DISALLOW_COPY_AND_ASSIGN(Channel);
