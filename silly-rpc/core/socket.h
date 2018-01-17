@@ -16,7 +16,6 @@
 namespace sillyrpc {
 namespace core {
 
-
 class Address;
 class Socket {
 public:
