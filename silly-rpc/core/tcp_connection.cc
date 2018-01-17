@@ -24,6 +24,13 @@ TcpConnection::TcpConnection(EventLoop* loop, int fd,
 }
 
 TcpConnection::~TcpConnection() {
+  if(_socket != NULL) {
+    delete _socket;
+  }
+
+  if (_channel != NULL) {
+    delete _channel;
+  }
 
 }
   
